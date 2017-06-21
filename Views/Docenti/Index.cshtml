@@ -1,0 +1,80 @@
+﻿@model IEnumerable<frameQuest.Models.Docente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+ <!-- search form -->
+<form action="/Docenti" method="get" class="form-inline">
+    <div class="input-group">
+        <select name="order" class="form-control">
+            <option value="Cognome">Cognome</option>
+            <option value="CodiceFiscale">Codice Fiscale</option>
+            <option value="Comune">Comune</option>
+            <option value="Nome">Nome</option>
+        </select>
+    </div>
+
+
+    <div class="input-group pull-right">
+        <input type="text" name="query" value="@ViewBag.query" class="form-control" placeholder="Search...">
+        <span class="input-group-btn">
+            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                <i class="fa fa-search"></i>
+            </button>
+        </span>
+    </div>
+</form>
+<!-- /.search form -->
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cognome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodiceFiscale)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comune)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cellulare)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cognome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodiceFiscale)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comune)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cellulare)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdDocente }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdDocente }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdDocente })
+        </td>
+    </tr>
+}
+
+</table>

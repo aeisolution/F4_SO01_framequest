@@ -1,0 +1,57 @@
+﻿@model IEnumerable<frameQuest.Models.Test>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Argomento.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Docente.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fase.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Argomento.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Docente.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fase.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descrizione)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdTest }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdTest }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdTest })
+        </td>
+    </tr>
+}
+
+</table>

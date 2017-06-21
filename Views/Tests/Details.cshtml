@@ -1,0 +1,58 @@
+﻿@model frameQuest.Models.Test
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Test</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Argomento.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Argomento.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Docente.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Docente.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fase.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fase.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descrizione)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdTest }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
