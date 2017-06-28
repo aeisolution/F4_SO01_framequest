@@ -129,9 +129,9 @@
                         @Html.DisplayFor(modelItem => item.Risposte.Count)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", "Domande", new { id = item.IdDomanda }) |
-                        @Html.ActionLink("Details", "Details", "Domande", new { id = item.IdDomanda }) |
-                        @Html.ActionLink("Delete", "Delete", "Domande", new { id = item.IdDomanda })
+                        @Html.ActionLink("Edit", "Edit", new { controller = "Domande", id = item.IdDomanda }) |
+                        @Html.ActionLink("Details", "Details", new { controller = "Domande", id = item.IdDomanda }) |
+                        @Html.ActionLink("Delete", "Delete", new { controller = "Domande", id = item.IdDomanda })
                     </td>
                 </tr>
             }
@@ -145,7 +145,7 @@
 
 
 <!-- Form Modale -->
-<form action="/Tests/DomandaCreate" method="POST">
+<form action="/Domande/Create" method="POST">
     @Html.HiddenFor(m => m.IdTest)
 
     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">

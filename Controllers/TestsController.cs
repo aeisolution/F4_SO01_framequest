@@ -138,58 +138,5 @@ namespace frameQuest.Controllers
             base.Dispose(disposing);
         }
 
-        // ---------------------------------
-        // Gestione Domande
-        public ActionResult DomandaCreate(DomandaDto domanda)
-        {
-            var test = db.Tests.Find(domanda.IdTest);
-            var dom = new Domanda
-            {
-                Testo = domanda.Testo,
-                Punti = domanda.Punti,
-                IdTest = domanda.IdTest,
-                Test = test,
-                Risposte = new List<Risposta>()
-            };
-
-            if (!String.IsNullOrEmpty(domanda.Ris1_Testo))
-            {
-                dom.Risposte.Add(new Risposta {
-                                        Testo = domanda.Ris1_Testo,
-                                        Esatta = domanda.Ris1_Esatta
-                                 });
-            }
-
-            if (!String.IsNullOrEmpty(domanda.Ris2_Testo))
-            {
-                dom.Risposte.Add(new Risposta
-                {
-                    Testo = domanda.Ris2_Testo,
-                    Esatta = domanda.Ris2_Esatta
-                });
-            }
-
-            if (!String.IsNullOrEmpty(domanda.Ris3_Testo))
-            {
-                dom.Risposte.Add(new Risposta
-                {
-                    Testo = domanda.Ris3_Testo,
-                    Esatta = domanda.Ris3_Esatta
-                });
-            }
-
-            if (!String.IsNullOrEmpty(domanda.Ris4_Testo))
-            {
-                dom.Risposte.Add(new Risposta
-                {
-                    Testo = domanda.Ris4_Testo,
-                    Esatta = domanda.Ris4_Esatta
-                });
-            }
-
-            db.Domande.Add(dom);
-            db.SaveChanges();
-            return RedirectToAction("Details", new { id = domanda.IdTest });
-        }
     }
 }

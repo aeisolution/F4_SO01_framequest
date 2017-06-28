@@ -14,16 +14,16 @@ namespace frameQuest.ViewModels
 
         // Opzioni di Risposta da 2 a 4
         public string Ris1_Testo { get; set; }
-        public bool Ris1_Esatta { get; set; }
+        public string Ris1_Esatta { get; set; }
 
         public string Ris2_Testo { get; set; }
-        public bool Ris2_Esatta { get; set; }
+        public string Ris2_Esatta { get; set; }
 
         public string Ris3_Testo { get; set; }
-        public bool Ris3_Esatta { get; set; }
+        public string Ris3_Esatta { get; set; }
 
         public string Ris4_Testo { get; set; }
-        public bool Ris4_Esatta { get; set; }
+        public string Ris4_Esatta { get; set; }
 
     }
 }
