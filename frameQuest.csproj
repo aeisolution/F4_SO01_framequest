@@ -141,6 +141,14 @@
     <Compile Include="Migrations\201706160950341_nuove tabelle.Designer.cs">
       <DependentUpon>201706160950341_nuove tabelle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706221257275_domande.cs" />
+    <Compile Include="Migrations\201706221257275_domande.Designer.cs">
+      <DependentUpon>201706221257275_domande.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706221453531_risposte.cs" />
+    <Compile Include="Migrations\201706221453531_risposte.Designer.cs">
+      <DependentUpon>201706221453531_risposte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Alunno.cs" />
     <Compile Include="Models\Classe.cs" />
@@ -149,6 +157,7 @@
     <Compile Include="Models\Parametri.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\DomandaDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\frameQuestContext-20170614170502.mdf" />
@@ -217,10 +226,18 @@
     <Content Include="Views\Tests\Details.cshtml" />
     <Content Include="Views\Tests\Edit.cshtml" />
     <Content Include="Views\Tests\Index.cshtml" />
+    <Content Include="Views\Shared\Breadcrumb.cshtml" />
+    <Content Include="Views\Shared\Pagehead.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706160950341_nuove tabelle.resx">
       <DependentUpon>201706160950341_nuove tabelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706221257275_domande.resx">
+      <DependentUpon>201706221257275_domande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706221453531_risposte.resx">
+      <DependentUpon>201706221453531_risposte.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -249,7 +266,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>64832</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:64832/</IISUrl>
+          <IISUrl>http://localhost:60832/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

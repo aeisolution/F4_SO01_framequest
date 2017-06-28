@@ -1,57 +1,80 @@
 ﻿@model IEnumerable<frameQuest.Models.Test>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Test";
+    ViewBag.Subtitle = "Elenco";
 }
 
-<h2>Index</h2>
+<!-- Default box -->
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">Test</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <div class="box-body">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Argomento.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Docente.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fase.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descrizione)
-        </th>
-        <th></th>
-    </tr>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Argomento.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Docente.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fase.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descrizione)
+                </th>
+                <th></th>
+            </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Argomento.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Docente.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fase.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descrizione)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdTest }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdTest }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdTest })
-        </td>
-    </tr>
-}
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Argomento.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Docente.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fase.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descrizione)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.IdTest }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.IdTest }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.IdTest })
+                    </td>
+                </tr>
+            }
 
-</table>
+        </table>
+
+
+
+    </div>
+    <!-- /.box-body -->
+</div>
+<!-- /.box -->
+

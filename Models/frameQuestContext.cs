@@ -25,5 +25,6 @@ namespace frameQuest.Models
         public DbSet<Test> Tests { get; set; }
         public DbSet<Argomento> Argomenti { get; set; }
         public DbSet<Fase> Fasi { get; set; }
+        public DbSet<Domanda> Domande { get; set; }
     }
 }

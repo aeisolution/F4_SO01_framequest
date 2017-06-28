@@ -1,58 +1,249 @@
 ﻿@model frameQuest.Models.Test
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Test";
+    ViewBag.Subtitle = "Dettaglio";
+
 }
 
-<h2>Details</h2>
+<!-- Pannello TEST -->
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">Test</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <div class="box-body">
 
-<div>
-    <h4>Test</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Argomento.Nome)
-        </dt>
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Argomento.Nome)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Argomento.Nome)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Argomento.Nome)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Docente.Nome)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Docente.Nome)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Docente.Nome)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Docente.Nome)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Fase.Nome)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Fase.Nome)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fase.Nome)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Fase.Nome)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descrizione)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Descrizione)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Descrizione)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Descrizione)
+                </dd>
 
-    </dl>
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.IdTest }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+
+
+    </div>
+    <!-- /.box-body -->
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdTest }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<!-- /.box -->
+
+
+
+<!-- Pannello DOMANDE Test  -->
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">Domande <span class="badge">@Model.Domande.Count</span></h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="pull-right">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">Nuova Domanda</button>
+        </div>
+
+        <table class="table">
+            <tr>
+                <th>
+                    IdDomanda
+                </th>
+                <th>
+                    Domanda
+                </th>
+                <th>
+                    Punti
+                </th>
+                <th>
+                    Num Risposte
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.Domande)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdDomanda)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Testo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Punti)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Risposte.Count)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", "Domande", new { id = item.IdDomanda }) |
+                        @Html.ActionLink("Details", "Details", "Domande", new { id = item.IdDomanda }) |
+                        @Html.ActionLink("Delete", "Delete", "Domande", new { id = item.IdDomanda })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+    <!-- /.box-body -->
+</div>
+<!-- /.box -->
+
+
+<!-- Form Modale -->
+<form action="/Tests/DomandaCreate" method="POST">
+    @Html.HiddenFor(m => m.IdTest)
+
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Nuova Domanda</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Domanda</label>
+                            <div class="col-sm-10">
+                                <textarea name="Testo" class="form-control" row="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Punti</label>
+                            <div class="col-sm-10">
+                                <input name="Punti" type="number" class="form-control">
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Risposta 1</label>
+                            <div class="col-sm-10">
+                                <input name="Ris1_Testo" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="Ris1_Esatta" type="checkbox"> Esatta
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Risposta 2</label>
+                            <div class="col-sm-10">
+                                <input name="Ris2_Testo" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="Ris2_Esatta" type="checkbox"> Esatta
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Risposta 3</label>
+                            <div class="col-sm-10">
+                                <input name="Ris3_Testo" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="Ris3_Esatta" type="checkbox"> Esatta
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Risposta 4</label>
+                            <div class="col-sm-10">
+                                <input name="Ris4_Testo" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="Ris4_Esatta" type="checkbox"> Esatta
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Aggiungi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
