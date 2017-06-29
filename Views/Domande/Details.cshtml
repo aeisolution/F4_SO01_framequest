@@ -83,6 +83,12 @@
     @Html.HiddenFor(m => m.IdDomanda)
     @Html.HiddenFor(m => m.IdTest)
 
+    @Html.Hidden("Ris1_IdRisposta", (int)ViewBag.Ris1_IdRisposta)
+    @Html.Hidden("Ris2_IdRisposta", (int)ViewBag.Ris2_IdRisposta)
+    @Html.Hidden("Ris3_IdRisposta", (int)ViewBag.Ris3_IdRisposta)
+    @Html.Hidden("Ris4_IdRisposta", (int)ViewBag.Ris4_IdRisposta)
+
+
     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -175,7 +181,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Aggiungi</button>
+                    <button type="submit" class="btn btn-primary">Salva</button>
                 </div>
             </div>
         </div>
