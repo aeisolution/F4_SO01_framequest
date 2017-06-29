@@ -76,6 +76,38 @@ namespace frameQuest.Controllers
                 return HttpNotFound();
             }
 
+            DomandaDto vm = new DomandaDto();
+            vm.IdDomanda = domanda.IdDomanda;
+            vm.IdTest = domanda.IdTest;
+            vm.Testo = domanda.Testo;
+            vm.Punti = domanda.Punti;
+
+            //ciclo per le Risposte
+            if (domanda.Risposte.Count > 0)
+            {
+                vm.Ris1_Testo = domanda.Risposte.ElementAtOrDefault(0).Testo;
+                vm.Ris1_Esatta = domanda.Risposte.ElementAtOrDefault(0).Esatta ? "on" : "";
+            }
+
+            if (domanda.Risposte.Count > 1)
+            {
+                vm.Ris2_Testo = domanda.Risposte.ElementAtOrDefault(1).Testo;
+                vm.Ris2_Esatta = domanda.Risposte.ElementAtOrDefault(1).Esatta ? "on" : "";
+            }
+
+            if (domanda.Risposte.Count > 2)
+            {
+                vm.Ris3_Testo = domanda.Risposte.ElementAtOrDefault(2).Testo;
+                vm.Ris3_Esatta = domanda.Risposte.ElementAtOrDefault(2).Esatta ? "on" : "";
+            }
+
+            if (domanda.Risposte.Count > 3)
+            {
+                vm.Ris4_Testo = domanda.Risposte.ElementAtOrDefault(3).Testo;
+                vm.Ris4_Esatta = domanda.Risposte.ElementAtOrDefault(3).Esatta ? "on" : "";
+            }
+
+            ViewBag.vm = vm;
             return View(domanda);
         }
 

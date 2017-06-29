@@ -9,6 +9,10 @@
 <div>
     <h4>Domanda</h4>
     <hr />
+    <div class="pull-right">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">Modifica Domanda</button>
+    </div>
+
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Test.Nome)
@@ -72,3 +76,109 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.IdDomanda }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+
+<!-- Form Modale -->
+<form action="/Domande/Edit" method="POST">
+    @Html.HiddenFor(m => m.IdDomanda)
+    @Html.HiddenFor(m => m.IdTest)
+
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Modifica Domanda</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Domanda</label>
+                            <div class="col-sm-10">
+                                <textarea name="Testo" class="form-control" row="3">@ViewBag.vm.Testo</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Punti</label>
+                            <div class="col-sm-10">
+                                <input name="Punti" value="@ViewBag.vm.Punti" type="number" class="form-control">
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Risposta 1</label>
+                            <div class="col-sm-10">
+                                <input name="Ris1_Testo" value="@ViewBag.vm.Ris1_Testo" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="Ris1_Esatta" @(ViewBag.vm.Ris1_Esatta=="on" ? "checked" : "") type="checkbox"> Esatta
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Risposta 2</label>
+                            <div class="col-sm-10">
+                                <input name="Ris2_Testo" value="@ViewBag.vm.Ris2_Testo" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="Ris2_Esatta" @(ViewBag.vm.Ris2_Esatta=="on" ? "checked" : "") type="checkbox"> Esatta
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Risposta 3</label>
+                            <div class="col-sm-10">
+                                <input name="Ris3_Testo" value="@ViewBag.vm.Ris3_Testo" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="Ris3_Esatta" @(ViewBag.vm.Ris3_Esatta=="on" ? "checked" : "") type="checkbox"> Esatta
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Risposta 4</label>
+                            <div class="col-sm-10">
+                                <input name="Ris4_Testo" value="@ViewBag.vm.Ris4_Testo" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="Ris4_Esatta" @(ViewBag.vm.Ris4_Esatta=="on" ? "checked" : "") type="checkbox"> Esatta
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Aggiungi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
