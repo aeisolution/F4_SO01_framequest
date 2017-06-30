@@ -160,6 +160,7 @@
     <Compile Include="Models\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\DomandaDto.cs" />
+    <Compile Include="ViewModels\ElaboraViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\frameQuestContext-20170614170502.mdf" />
@@ -233,6 +234,7 @@
     <Content Include="Views\Domande\Details.cshtml" />
     <Content Include="Views\PlayTest\Index.cshtml" />
     <Content Include="Views\PlayTest\Play.cshtml" />
+    <Content Include="Views\PlayTest\Elabora.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706160950341_nuove tabelle.resx">

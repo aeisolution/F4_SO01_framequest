@@ -33,5 +33,32 @@ namespace frameQuest.Controllers
             }
             return View(test);
         }
+
+        public ActionResult Elabora()
+        {
+            ViewBag.elabora = Request.QueryString;
+
+            string chiave, valore;
+
+            ICollection<ElaboraViewModel> elaboraVM = new List<ElaboraViewModel>();
+            foreach(var key in Request.QueryString)
+            {
+                chiave = key.ToString();
+                valore = Request.QueryString[key.ToString()];
+
+                elaboraVM.Add(
+                    new ElaboraViewModel
+                    {
+                        chiave = chiave,
+                        valore = valore,
+                        IdRisposta = int.Parse(valore),
+                        IdDomanda = int.Parse(chiave.Substring(7))
+                    }
+                    );
+            }
+
+
+            return View(elaboraVM);
+        }
     }
 }

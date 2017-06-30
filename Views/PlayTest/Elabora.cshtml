@@ -1,0 +1,18 @@
+﻿@model IEnumerable<frameQuest.ViewModels.ElaboraViewModel>
+
+
+@{
+    ViewBag.Title = "Elabora";
+}
+
+<h2>Elabora</h2>
+
+<p>@ViewBag.elabora</p>
+
+<dl>
+    @foreach (var r in Model)
+    {
+        <dt>@r.chiave [@r.IdDomanda]</dt>
+        <dd>@r.valore [@r.IdRisposta]</dd>
+    }
+</dl>
