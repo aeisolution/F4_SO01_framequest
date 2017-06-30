@@ -78,12 +78,11 @@ namespace frameQuest.Controllers
             domDB.Punti = domanda.Punti;
 
             int i = 0;
-            int RisCount = domDB.Risposte.Count;
 
             var ris = new Risposta { IdRisposta = 0 };
                 
-            if(RisCount > i)
-                ris = domDB.Risposte.ElementAt(i++);
+            if(domDB.Risposte.Count > i)
+                ris = domDB.Risposte.ElementAt(i);
 
             if (!String.IsNullOrEmpty(domanda.Ris1_Testo))
             {
@@ -94,18 +93,18 @@ namespace frameQuest.Controllers
                 {
                     domDB.Risposte.Add(ris);
                     i++;
-                    RisCount++;
                 } 
 
-            } else if (RisCount > i) {
+            } else if (domDB.Risposte.Count > i) {
                 domDB.Risposte.Remove(ris);
                 i--;
             }
+            i++;
 
             ris = new Risposta { IdRisposta = 0 };
 
-            if (RisCount > i)
-                ris = domDB.Risposte.ElementAt(i++);
+            if (domDB.Risposte.Count > i)
+                ris = domDB.Risposte.ElementAt(i);
             if (!String.IsNullOrEmpty(domanda.Ris2_Testo))
             {
                 ris.Testo = domanda.Ris2_Testo;
@@ -114,7 +113,6 @@ namespace frameQuest.Controllers
                 {
                     domDB.Risposte.Add(ris);
                     i++;
-                    RisCount++;
                 }
             }
             else if (domDB.Risposte.Count > i)
@@ -122,11 +120,12 @@ namespace frameQuest.Controllers
                 domDB.Risposte.Remove(ris);
                 i--;
             }
+            i++;
 
             ris = new Risposta { IdRisposta = 0 };
 
-            if (RisCount > i)
-                ris = domDB.Risposte.ElementAt(i++);
+            if (domDB.Risposte.Count > i)
+                ris = domDB.Risposte.ElementAt(i);
             if (!String.IsNullOrEmpty(domanda.Ris3_Testo))
             {
                 ris.Testo = domanda.Ris3_Testo;
@@ -135,7 +134,6 @@ namespace frameQuest.Controllers
                 {
                     domDB.Risposte.Add(ris);
                     i++;
-                    RisCount++;
                 }
             }
             else if (domDB.Risposte.Count > i)
@@ -143,11 +141,11 @@ namespace frameQuest.Controllers
                 domDB.Risposte.Remove(ris);
                 i--;
             }
-
+            i++;
             ris = new Risposta { IdRisposta = 0 };
 
-            if (RisCount > i)
-                ris = domDB.Risposte.ElementAt(i++);
+            if (domDB.Risposte.Count > i)
+                ris = domDB.Risposte.ElementAt(i);
             if (!String.IsNullOrEmpty(domanda.Ris4_Testo))
             {
                 ris.Testo = domanda.Ris4_Testo;
@@ -156,7 +154,6 @@ namespace frameQuest.Controllers
                 {
                     domDB.Risposte.Add(ris);
                     i++;
-                    RisCount++;
                 }
             }
             else if (domDB.Risposte.Count > i)
@@ -164,8 +161,7 @@ namespace frameQuest.Controllers
                 domDB.Risposte.Remove(ris);
                 i--;
             }
-
-
+            i++;
 
             db.Entry(domDB).State = EntityState.Modified;
 

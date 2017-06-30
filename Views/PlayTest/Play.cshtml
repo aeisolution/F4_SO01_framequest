@@ -1,0 +1,89 @@
+﻿@model frameQuest.Models.Test
+
+@{
+    ViewBag.Title = "Play";
+}
+
+<h2>Play</h2>
+
+<div>
+    <h4>Test</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Argomento
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Argomento.Nome)
+        </dd>
+
+        <dt>
+            Docente
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Docente.Nome)
+        </dd>
+
+        <dt>
+            Fase
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fase.Nome)
+        </dd>
+
+        <dt>
+            Titolo Test
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descrizione)
+        </dd>
+
+    </dl>
+
+    <hr />
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        @foreach (var dom in Model.Domande)
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            @Html.DisplayFor(m => dom.Testo)
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        Risposte:
+                        @foreach (var ris in dom.Risposte)
+                        {
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                    @Html.DisplayFor(m => ris.Testo)
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdTest }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -129,8 +129,7 @@
                         @Html.DisplayFor(modelItem => item.Risposte.Count)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { controller = "Domande", id = item.IdDomanda }) |
-                        @Html.ActionLink("Details", "Details", new { controller = "Domande", id = item.IdDomanda }) |
+                        @Html.ActionLink("Edit/Details", "Details", new { controller = "Domande", id = item.IdDomanda }) |
                         @Html.ActionLink("Delete", "Delete", new { controller = "Domande", id = item.IdDomanda })
                     </td>
                 </tr>

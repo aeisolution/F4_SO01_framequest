@@ -134,6 +134,7 @@
     <Compile Include="Controllers\DomandeController.cs" />
     <Compile Include="Controllers\FasiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlayTestController.cs" />
     <Compile Include="Controllers\TestsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -230,6 +231,8 @@
     <Content Include="Views\Shared\Breadcrumb.cshtml" />
     <Content Include="Views\Shared\Pagehead.cshtml" />
     <Content Include="Views\Domande\Details.cshtml" />
+    <Content Include="Views\PlayTest\Index.cshtml" />
+    <Content Include="Views\PlayTest\Play.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706160950341_nuove tabelle.resx">
