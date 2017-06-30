@@ -27,5 +27,8 @@ namespace frameQuest.Models
         public DbSet<Fase> Fasi { get; set; }
         public DbSet<Domanda> Domande { get; set; }
         public DbSet<Risposta> Risposte { get; set; }
+
+        public DbSet<Sessione> Sessioni { get; set; }
+        public DbSet<SessioneRisposta> SessioniRisposte { get; set; }
     }
 }

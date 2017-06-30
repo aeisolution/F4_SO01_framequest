@@ -1,4 +1,4 @@
-﻿@model IEnumerable<frameQuest.ViewModels.ElaboraViewModel>
+﻿@model frameQuest.Models.Sessione
 
 
 @{
@@ -7,12 +7,16 @@
 
 <h2>Elabora</h2>
 
-<p>@ViewBag.elabora</p>
+<ul>
+    <li>IdTest: @Model.IdTest</li>
+    <li>Nominativo: @Model.Nominativo</li>
+</ul>
 
+Risposte:
 <dl>
-    @foreach (var r in Model)
+    @foreach (var r in Model.Risposte)
     {
-        <dt>@r.chiave [@r.IdDomanda]</dt>
-        <dd>@r.valore [@r.IdRisposta]</dd>
+        <dt>@r.IdDomanda</dt>
+        <dd>@r.IdRisposta</dd>
     }
 </dl>

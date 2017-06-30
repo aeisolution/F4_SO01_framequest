@@ -36,29 +36,43 @@ namespace frameQuest.Controllers
 
         public ActionResult Elabora()
         {
-            ViewBag.elabora = Request.QueryString;
+            //ViewBag.elabora = Request.QueryString;
 
             string chiave, valore;
 
-            ICollection<ElaboraViewModel> elaboraVM = new List<ElaboraViewModel>();
-            foreach(var key in Request.QueryString)
+            Sessione sessione = new Sessione();
+            sessione.Risposte = new List<SessioneRisposta>();
+
+            //ICollection<ElaboraViewModel> elaboraVM = new List<ElaboraViewModel>();
+            foreach (var key in Request.QueryString)
             {
                 chiave = key.ToString();
                 valore = Request.QueryString[key.ToString()];
 
-                elaboraVM.Add(
-                    new ElaboraViewModel
-                    {
-                        chiave = chiave,
-                        valore = valore,
-                        IdRisposta = int.Parse(valore),
-                        IdDomanda = int.Parse(chiave.Substring(7))
-                    }
+                if (chiave == "nominativo")
+                {
+                    sessione.Nominativo = valore;
+                }
+                else if (chiave == "idTest")
+                {
+                    sessione.IdTest = int.Parse(valore);
+                }
+                else
+                {
+                    sessione.Risposte.Add(
+                        new SessioneRisposta
+                        {
+                            IdRisposta = int.Parse(valore),
+                            IdDomanda = int.Parse(chiave.Substring(7))
+                        }
                     );
+                }
             }
 
+            db.Sessioni.Add(sessione);
+            db.SaveChanges();
 
-            return View(elaboraVM);
+            return View(sessione);
         }
     }
 }

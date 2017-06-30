@@ -1,0 +1,58 @@
+﻿@model frameQuest.Models.Sessione
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sessione</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Test.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Test.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nominativo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nominativo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Punteggio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Punteggio)
+        </dd>
+
+    </dl>
+
+    <div>
+        @foreach (var r in Model.Risposte)
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">@r.Domanda.Testo</div>
+                <div class="panel-body">
+                    @r.Risposta.Testo
+                    <span class="label label-lg @( r.Risposta.Esatta ? "label-success" : "label-danger" ) pull-right">
+                        @( r.Risposta.Esatta ? "esatta" : "errata" )
+                    </span>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdSessione }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

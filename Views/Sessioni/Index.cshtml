@@ -1,0 +1,45 @@
+﻿@model IEnumerable<frameQuest.Models.Sessione>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Test.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nominativo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Punteggio)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Test.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nominativo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Punteggio)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdSessione }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdSessione }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdSessione })
+        </td>
+    </tr>
+}
+
+</table>
